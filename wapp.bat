@@ -2,7 +2,7 @@ cls
 @ECHO OFF 
 SET NGINX_PATH=C: 
 SET NGINX_DIR=C:\nginx\
-SET PHP_DIR=C:\php\php-5.6.22\
+SET PHP_DIR=C:\php\php-5.5.29\
 SET MYSQL_DIR=C:\mysql-5.6.28-winx64
 color 0a 
 TITLE App Management
@@ -58,7 +58,7 @@ tasklist /FI "IMAGENAME eq php-cgi.exe" | find "php-cgi.exe" > nul && ECHO.php-c
 IF NOT EXIST %PHP_DIR%php-cgi.exe ECHO %PHP_DIR%php-cgi.exe command is not exist
 %NGINX_PATH% 
 cd %PHP_DIR% 
-IF EXIST %PHP_DIR% start /b %PHP_DIR%php-cgi.exe -b 9001
+IF EXIST %PHP_DIR% start /MIN %PHP_DIR%php-cgi.exe -b 9001
 tasklist /FI "IMAGENAME eq php-cgi.exe" | find "php-cgi.exe" > nul && ECHO Start OK
 tasklist /FI "IMAGENAME eq php-cgi.exe" | find "No tasks" > nul && ECHO.php-cgi Start Faild. 
 PAUSE 
